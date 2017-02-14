@@ -1,23 +1,26 @@
 <ion-content padding class="wall">
   <h1 text-center class="title"> Eskiltuna Hood</h1>
   <ion-grid>
-    <ion-row>
+    <ion-row height-100>
       <ion-col width-33>
-        <a ion-thumbnail text-wrap [navPush]="restaurantPage">
-            <img class="scale" src="assets/images/mcdonalds.png"/>
-            <div text-center class="info">McDonald</div>
-            <div text-center class="sub-info">4 <ion-icon name="people"></ion-icon></div>
-          </a>
+        <div class="bgsquare">
+          <div text-left>Currently producing</div>
+          <div text-center> 500 Watt </div>
+        </div>
       </ion-col>
       <ion-col width-33>
-        <a ion-thumbnail text-wrap class="second">
-          <p text-uppercase> That's like cooking </p>
-        </a>
+        <div class="bgsquare1">
+          <div text-left> That's like cooking</div>
+          <div text-center> Rice </div>
+        </div>
+
       </ion-col>
       <ion-col width-33>
-        <a ion-thumbnail text-wrap class="third">
-          <p text-uppercase> Did you know </p>
-        </a>
+        <div class="bgsquare2">
+          <div text-left>Did you know</div>
+          <div text-center> Rice. </div>
+        </div>
+
       </ion-col>
     </ion-row>
   </ion-grid>
