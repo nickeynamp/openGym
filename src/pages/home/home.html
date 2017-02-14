@@ -3,13 +3,15 @@
   <ion-grid>
     <ion-row>
       <ion-col width-33>
-        <a ion-thumbnail text-wrap class="first">
-          <p text-uppercase> currently producing </p>
-        </a>
+        <a ion-thumbnail text-wrap [navPush]="restaurantPage">
+            <img class="scale" src="assets/images/mcdonalds.png"/>
+            <div text-center class="info">McDonald</div>
+            <div text-center class="sub-info">4 <ion-icon name="people"></ion-icon></div>
+          </a>
       </ion-col>
       <ion-col width-33>
         <a ion-thumbnail text-wrap class="second">
-          <p text-uppercase> That's like cooking' </p>
+          <p text-uppercase> That's like cooking </p>
         </a>
       </ion-col>
       <ion-col width-33>
