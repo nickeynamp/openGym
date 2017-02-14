@@ -1,9 +1,12 @@
 .title{
-    color:white;
+    color:black;
     text-transform: uppercase;
 }
-.wall{
-    background-color: black;
+
+.center >*{
+     display: flex!important;
+     align-content: center!important;
+     align-items: center!important;
 }
 
 .bgsquare{
