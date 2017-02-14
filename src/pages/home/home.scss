@@ -3,23 +3,24 @@
     text-transform: uppercase;
 }
 .wall{
-    background-color: brown;
+    background-color: black;
 }
-.first{
-    position: relative;
-    background-color: white;
-    border-style: solid;
-    border-color: white;
-    width: 100px;
-    height: 100px;
+
+.bgsquare{
+    height: 100% !important;
+    width: auto;
+    background-color: blue;
+    color: white;
 }
-.second{
+.bgsquare1{
+    height: 100%;
+    width: auto;
     background-color: red;
+    color: white;
 }
-.third{
-    background-color: green;
-}
-
-p{
-
+.bgsquare2{
+    height: 100%;
+    width: auto;
+    background-color: #41cd7c;
+    color: white;
 }
