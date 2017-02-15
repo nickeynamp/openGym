@@ -2,6 +2,8 @@
     color:black;
     font-size:5vw;
     text-transform: uppercase;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-weight: bold;
 }
 
 .blocks{
@@ -23,14 +25,21 @@
     display:block;
     padding-bottom: 77%;
 }
-.text {
-  position:absolute;
-  left:0;
-  right:0;
-}
 #block1{
     background-color: red;
 }
 #block2{
     background-color: #41cd7c;
+}
+
+.text {
+  position:absolute;
+  left:0;
+  right:0;
+}
+.info{
+    text-transform: uppercase;
+}
+.subInfo{
+    text-transform: uppercase;
 }
