@@ -11,6 +11,7 @@
     align-items: center!important;
 }
 .bgsquare{
+    position:relative;
     height: 100% !important;
     width: auto;
     background-color: blue;
@@ -20,6 +21,11 @@
     content:"";
     display:block;
     padding-bottom: 77%;
+}
+.text {
+  position:absolute;
+  left:0;
+  right:0;
 }
 #block1{
     background-color: red;
