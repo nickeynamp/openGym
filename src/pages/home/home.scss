@@ -36,11 +36,19 @@
   position:absolute;
   left:0;
   right:0;
-}
-.info{
+  .info{
+    position: relative;
+    top: 37%;
+    left:0;
+    right:0;
+    font-size: 3.0vw;
+  }
+ .subInfo{
     text-transform: uppercase;
-}
-.subInfo{
-    text-transform: uppercase;
-    top:90%;
+    position: relative;
+    top: 37%;
+    left:0;
+    right:0;
+    font-size: 3.0vw;
+ }
 }
