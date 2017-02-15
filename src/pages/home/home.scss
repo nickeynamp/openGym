@@ -2,10 +2,13 @@
     color:black;
     text-transform: uppercase;
     margin-top: 0;
+
 }
 
-.center>* {
-    display: flex!important;
+.blocks{
+    position: absolute;
+    top: 50%;
+    display:inline-flex;
     align-content: center!important;
     align-items: center!important;
 }
@@ -14,6 +17,7 @@
     width: auto;
     background-color: blue;
     color: white;
+
 }
 #block1{
     background-color: red;
