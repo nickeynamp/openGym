@@ -1,9 +1,10 @@
 .title{
     color:black;
     text-transform: uppercase;
+    margin-top: 0;
 }
 
-.center>*{
+.center>* {
     display: flex!important;
     align-content: center!important;
     align-items: center!important;
@@ -14,15 +15,9 @@
     background-color: blue;
     color: white;
 }
-.bgsquare1{
-    height: 100%;
-    width: auto;
+#block1{
     background-color: red;
-    color: white;
 }
-.bgsquare2{
-    height: 100%;
-    width: auto;
+#block2{
     background-color: #41cd7c;
-    color: white;
 }
