@@ -1,15 +1,24 @@
+.bgimage{
+    background:
+     linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.4)
+    ),url('../../assets/images/green.jpeg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 .title{
-    color:black;
-    font-size:5vw;
+    color:white;
+    font-size:10vw;
     text-transform: uppercase;
     font-family: 'PT Sans Caption', sans-serif;
     font-weight: bold;
+    margin-bottom: 10px;
 }
-
 .cont{
     position: relative;
 }
-
 .blocks{
     position: absolute;
     top: 50%;
@@ -22,7 +31,7 @@
     height: 100% !important;
     width: auto;
     background-color: #56A0D3;
-    color: white;
+    color: black;
     border-radius: 1%;
     border-style: groove;
     border-color: white;
@@ -45,13 +54,16 @@
     top: 2%;
     left:0;
     right:0;
-    font-size: 3.0vw;
+    font-size: 4.5vw;
+    font-family: 'Caveat Brush', cursive;
+    text-transform: uppercase;
   }
   .subInfo{
     text-transform: uppercase;
     position: absolute;
-    top: 43%;
-    left:0;
-    right:0;
-    font-size: 3.0vw;
+    top: 35%;
+    left:2px;
+    right:2px;
+    font-size: 4.0vw;
+    font-family: 'Caveat Brush', cursive;
   }
