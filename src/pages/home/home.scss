@@ -1,9 +1,9 @@
 .bgimage{
     background:
      linear-gradient(
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.1)
+      rgba(0, 0, 0, 0.2), 
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0)
     ),url('../assets/images/green.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,50 +28,51 @@
 }
 .bgsquare{
     position:relative;
-    height: 100% !important;
+    height: 5000%;
     width: auto;
-    background-color: #56A0D3;
     color: black;
     border-radius: 1%;
     border-style: groove;
     border-color: white;
     box-shadow: 0px 5px 2px rgba(0,0,0,0.3);
-}
-.bgsquare:after{
-    content:"";
-    display:block;
-    padding-bottom: 70%;
-}
-#block{
-    background-color: white;
-}
-#block1{
-    background-color: rgb(237, 166, 93);
-}
-#block2{
-    background-color: #41cd7c;
+    img{
+        width: auto;
+        height: 40%;
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+    }
 }
 
+#icon{
+    font-size: 10vw;
+    color: white;
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    top:50%;
+    transform:translateY(-50%);
+}
   .info{
     position: absolute;
     top: 2%;
     left:0;
     right:0;
+    color:white;
     font-size: 3.4vw;
+    font-weight: bold;
     font-family: 'Merriweather', serif;
     text-transform: uppercase;
   }
   .subInfo{
     text-transform: uppercase;
     position: absolute;
-    top: 35%;
+    bottom: 5px;
     left:2px;
     right:2px;
-    font-size: 2.5vw;
+    color: white;
+    font-size: 3vw;
+    font-weight: bold;
     font-family: 'Merriweather', serif;
   }
-.center{
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: middle;
-}
