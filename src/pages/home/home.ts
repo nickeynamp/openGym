@@ -25,11 +25,11 @@ export class HomePage {
 
 
     function success(){
-      console.log("connection success");
+      console.log("Operation Succeeded");
 
     };
     function fail(){
-      console.log("Failed to Connect to Device");
+      console.log("Operation Failed");
 
     };
 
