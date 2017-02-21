@@ -23,13 +23,13 @@ export class HomePage {
             console.log('Fail!');
             });
 
-
     function success(){
       console.log("Operation Succeeded");
+      BluetoothSerial.read().then
 
     };
     function fail(){
-      console.log("Operation Failed");
+      console.log("Operation Failed. Have you tried turning it on and off again?? ;)s");
 
     };
 
