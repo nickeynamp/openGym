@@ -14,9 +14,15 @@ export class HomePage {
 
   constructor(public navCtrl: NavController) {
     let UUID: string = "mac_address";
-    BluetoothSerial.connect(UUID);  // not sure if it works, can someone check how to deal with obsevable ?
-    BluetoothSerial.isConnected().then(success,fail); // needs testing, not sure if works
-    //WTF is a promise?
+
+    BluetoothSerial.isEnabled().then(res =>{
+      BluetoothSerial.connect(UUID); // not sure if it works, can someone check how to deal with obsevable ?
+      BluetoothSerial.isConnected().then(success,fail); // needs testing, not sure if works
+
+    }).catch(res => {
+            console.log('Fail!');
+            });
+
 
     function success(){
       console.log("connection success");
@@ -24,7 +30,7 @@ export class HomePage {
     };
     function fail(){
       console.log("Failed to Connect to Device");
-      
+
     };
 
 
