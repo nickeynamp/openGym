@@ -40,7 +40,10 @@
 .bgsquare:after{
     content:"";
     display:block;
-    padding-bottom: 97%;
+    padding-bottom: 70%;
+}
+#block{
+    background-color: white;
 }
 #block1{
     background-color: rgb(237, 166, 93);
@@ -54,8 +57,8 @@
     top: 2%;
     left:0;
     right:0;
-    font-size: 4.5vw;
-    font-family: Ubuntu, cursive;
+    font-size: 3.4vw;
+    font-family: 'Merriweather', serif;
     text-transform: uppercase;
   }
   .subInfo{
@@ -64,6 +67,11 @@
     top: 35%;
     left:2px;
     right:2px;
-    font-size: 4.0vw;
-    font-family: Ubuntu, cursive;
+    font-size: 2.5vw;
+    font-family: 'Merriweather', serif;
   }
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
