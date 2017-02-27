@@ -26,7 +26,6 @@ export class HomePage {
     function success(){
       console.log("Operation Succeeded");
       BluetoothSerial.read().then
-
     };
     function fail(){
       console.log("Operation Failed. Have you tried turning it on and off again?? ;)s");

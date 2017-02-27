@@ -28,39 +28,33 @@
     border-style: groove;
     border-color: white;
     box-shadow: 0px 5px 2px rgba(0,0,0,0.3);
-    overflow: auto;
 }
 
-#icon{
-    font-size: 12vw;
-    color: white;
-    position:absolute;
-    left: 0;
-    right: 0;
-    margin:0 auto;
-    top:50%;
-    transform:translateY(-50%);
-}
 .info{
     position: absolute;
     top: 5px;
     left:2px;
     right:2px;
     color:white;
-    font-size: 3.4vw;
+    font-size: 3.5vw;
     font-weight: bold;
-    font-family: 'Merriweather', serif;
+    font-family: 'Heebo', serif;
     text-transform: uppercase;
 }
 .subInfo{
     text-transform: uppercase;
-    position: absolute;
-    top:90%;
-    bottom: 5px;
-    left:2px;
-    right:2px;
+    position:absolute;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    top:50%;
+    transform:translateY(-50%);
     color: white;
     font-size: 3vw;
-    font-weight: bold;
-    font-family: 'Merriweather', serif;
+    font-family: 'Heebo', sans-serif;
+    display: block;
+    #icon{
+        display: block;
+        font-size: 6vw;
+    }
 }
