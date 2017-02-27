@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ScreenOrientation} from 'ionic-native';
 import { BluetoothSerial } from 'ionic-native';
-
+import * as $ from "jquery";
 
 ScreenOrientation.lockOrientation('landscape');
 
@@ -20,13 +20,14 @@ export class HomePage {
 
     }).catch(res => {
             console.log('Fail!');
+            $("div.t1").text('It does not work');
             });
 
     function success(){
+      var data = "connected ++" ;
+      $("div.t1").text('data');
 
-      //console.log("Operation Succeeded");
-      alert("success");
-      var data;
+
       //BluetoothSerial.read(function(data){console.log(data);},fail);
 
     };
