@@ -13,7 +13,6 @@ ScreenOrientation.lockOrientation('landscape');
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-
     let MAC_bluetooth_module: string = "20:16:10:10:18:31";
     let MAC_Adurino: string = "20:";
     BluetoothSerial.isEnabled().then(res =>{
