@@ -13,9 +13,14 @@ ScreenOrientation.lockOrientation('landscape');
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-    let MAC: string = "20:16:10:10:18:31";
+
+    let MAC_bluetooth_module: string = "20:16:10:10:18:31";
+    let MAC_Adurino: string = "20:";
     BluetoothSerial.isEnabled().then(res =>{
-      BluetoothSerial.connect(MAC); // not sure if it works, can someone check how to deal with obsevable ?
+      BluetoothSerial.list().then(val=>{ $("div.t1").text(val);},error=>{console.log("error")});
+      BluetoothSerial.connect(MAC_bluetooth_module); // not sure if it works, can someone check how to deal with obsevable ?
+      $("#energy").text('connected');
+
       BluetoothSerial.isConnected().then(success,fail); // needs testing, not sure if works
 
     }).catch(res => {
@@ -24,7 +29,7 @@ export class HomePage {
             $("#energy").html('Bluetooth connection is bad');
             });
 
-    function success(){
+    var success = function s1(){
       var data = "connected ++" ;
       $("#energy").text('data');
 
@@ -34,7 +39,7 @@ export class HomePage {
     };
     function fail(){
       console.log("Operation Failed. Have you tried turning it on and off again??");
-      $("#energy").text('Bluetooth is not enabled');
+      $("#energy").text('Something is not enabled');
     };
 
 
