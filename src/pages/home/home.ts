@@ -20,7 +20,8 @@ export class HomePage {
 
     }).catch(res => {
             console.log('Fail!');
-            $("#energy").text('It does not work');
+            console.log(BluetoothSerial.isConnected());
+            $("#energy").html('Bluetooth connection is bad');
             });
 
     function success(){
@@ -32,9 +33,8 @@ export class HomePage {
 
     };
     function fail(){
-      console.log("Operation Failed. Have you tried turning it on and off again?? ;)s");
-
-
+      console.log("Operation Failed. Have you tried turning it on and off again??");
+      $("#energy").text('Bluetooth is not enabled');
     };
 
 
