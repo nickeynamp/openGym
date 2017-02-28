@@ -17,32 +17,33 @@ export class HomePage {
   }
 
   connect(){
-
+    //IS Bluetooth TURNED ON?
     BluetoothSerial.isEnabled().then(res =>{
       //BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
 
       //LIST DEVICES
       BluetoothSerial.list().then(
-        (allDevices) => {
+        (devices) => {
             // set the list to returned value
-            $("#energy").html('Listing devices \n' +allDevices.length +allDevices);
-            if(allDevices.length == 0){
-               $("#energy").html('No devices found');
+            $("#energy").html('Listing devices \n' +devices.length +devices);
+            BluetoothSerial.connect(devices[4].dataset.deviceID);
+            if(devices.length ===0){
+              $("#energy").html("No Bluetooth Device found");
             }
+            
         });
 
       //ATTEMP TO CONNECT
-      BluetoothSerial.connect('20:16:10:10:18:31');
-      BluetoothSerial.isConnected().then(
-        success => {
-          $("#energy").text("Connected Hooooray");
+      var deviceReady = function() {
+          $("#energy").html("Connected Hooooray");
           BluetoothSerial.subscribeRawData();
           //BluetoothSerial.read(function(data){console.log(data);},fail);
-        }).catch(
-          fail=>{
-            // $("#energy").text('Fail to connect to Arduino. Have you tried turning it on and off again??');
-          });
-
+        };
+      var error = function(){
+            $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
+          };
+      BluetoothSerial.connect('20:16:10:10:18:31');
+      BluetoothSerial.isConnected().then(deviceReady,error);
     }).catch(fail => {
             console.log('Fail!');
             console.log("Promise type is " + BluetoothSerial.list());
