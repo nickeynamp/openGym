@@ -25,12 +25,12 @@ export class HomePage {
     }).catch(res => {
             console.log('Fail!');
             console.log(BluetoothSerial.isConnected());
-            $("#energy").html('Bluetooth connection is bad');
+            $("#energy").html('Bluetooth is not enabled');
             });
 
     var success = function s1(){
       var data = "connected ++" ;
-      $("#energy").text('data');
+      $("#energy").text('data W');
 
 
       //BluetoothSerial.read(function(data){console.log(data);},fail);
@@ -38,7 +38,7 @@ export class HomePage {
     };
     function fail(){
       console.log("Operation Failed. Have you tried turning it on and off again??");
-      $("#energy").text('Something is not enabled');
+      $("#energy").text('Fail to connect to Arduino');
     };
 
 
