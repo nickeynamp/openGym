@@ -11,10 +11,9 @@ ScreenOrientation.lockOrientation('landscape');
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public lists = [];
 
   constructor(public navCtrl: NavController) {
-    this.connect();
+  
   }
 
   connect(){
@@ -26,10 +25,9 @@ export class HomePage {
       BluetoothSerial.list().then(
         (allDevices) => {
             // set the list to returned value
-            this.lists = allDevices;
-            $("#energy").text('Listing devices' + this.lists.toString);
-            if(this.lists.length == 0){
-               $("#energy").text('No devices found');
+            $("#energy").html('Listing devices \n' +allDevices.length +allDevices);
+            if(allDevices.length == 0){
+               $("#energy").html('No devices found');
             }
         });
 
