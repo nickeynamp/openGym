@@ -31,8 +31,6 @@ export class HomePage {
     function success(){
       var data = "Connected Hooooray" ;
       $("#energy").text(data);
-
-
       //BluetoothSerial.read(function(data){console.log(data);},fail);
 
     };
