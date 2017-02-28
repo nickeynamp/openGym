@@ -16,7 +16,7 @@ export class HomePage {
     let MAC_bluetooth_module: string = "20:16:10:10:18:31";
     let MAC_Adurino: string = "20:";
     BluetoothSerial.isEnabled().then(res =>{
-      BluetoothSerial.list().then(val=>{ $("div.t1").text(val);},error=>{console.log("error")});
+      BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
       BluetoothSerial.connect(MAC_bluetooth_module); // not sure if it works, can someone check how to deal with obsevable ?
       $("#energy").text('connected');
 
@@ -30,7 +30,7 @@ export class HomePage {
 
     var success = function s1(){
       var data = "connected ++" ;
-      $("#energy").text('data W');
+      $("#energy").text(data);
 
 
       //BluetoothSerial.read(function(data){console.log(data);},fail);
