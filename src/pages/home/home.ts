@@ -28,8 +28,8 @@ export class HomePage {
             $("#energy").html('Bluetooth is not enabled');
             });
 
-    var success = function s1(){
-      var data = "connected ++" ;
+    function success(){
+      var data = "Connected Hooooray" ;
       $("#energy").text(data);
 
 
