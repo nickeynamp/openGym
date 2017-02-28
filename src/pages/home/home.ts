@@ -11,35 +11,45 @@ ScreenOrientation.lockOrientation('landscape');
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public lists = [];
 
   constructor(public navCtrl: NavController) {
-    let MAC_bluetooth_module: string = "20:16:10:10:18:31";
-    let MAC_Adurino: string = "20:";
+    this.connect();
+  }
+
+  connect(){
+
     BluetoothSerial.isEnabled().then(res =>{
-      BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
-      BluetoothSerial.connect(MAC_bluetooth_module); // not sure if it works, can someone check how to deal with obsevable ?
-      $("#energy").text('connected');
+      //BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
 
-      BluetoothSerial.isConnected().then(success,fail); // needs testing, not sure if works
+      //LIST DEVICES
+      BluetoothSerial.list().then(
+        (allDevices) => {
+            // set the list to returned value
+            this.lists = allDevices;
+            $("#energy").text('Listing devices' + this.lists.toString);
+            if(this.lists.length == 0){
+               $("#energy").text('No devices found');
+            }
+        });
 
-    }).catch(res => {
+      //ATTEMP TO CONNECT
+      BluetoothSerial.connect('20:16:10:10:18:31');
+      BluetoothSerial.isConnected().then(
+        success => {
+          $("#energy").text("Connected Hooooray");
+          BluetoothSerial.subscribeRawData();
+          //BluetoothSerial.read(function(data){console.log(data);},fail);
+        }).catch(
+          fail=>{
+            // $("#energy").text('Fail to connect to Arduino. Have you tried turning it on and off again??');
+          });
+
+    }).catch(fail => {
             console.log('Fail!');
-            console.log(BluetoothSerial.isConnected());
-            $("#energy").html('Bluetooth is not enabled');
+            console.log("Promise type is " + BluetoothSerial.list());
+            $("#energy").html('Bluetooth is not enabled/supported');
             });
-
-    function success(){
-      var data = "Connected Hooooray" ;
-      $("#energy").text(data);
-      //BluetoothSerial.read(function(data){console.log(data);},fail);
-
-    };
-    function fail(){
-      console.log("Operation Failed. Have you tried turning it on and off again??");
-      $("#energy").text('Fail to connect to Arduino');
-    };
-
-
   }
 
 }
