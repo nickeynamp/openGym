@@ -11,13 +11,13 @@ ScreenOrientation.lockOrientation('landscape');
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  public arduino;
   constructor(public navCtrl: NavController) {
   
   }
 
   connect(){
-    BluetoothSerial.enable();
+    // BluetoothSerial.enable();
     //IS Bluetooth TURNED ON?
     BluetoothSerial.isEnabled().then(res =>{
       //BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
@@ -27,6 +27,9 @@ export class HomePage {
         (devices) => {
             // set the list to returned value
             $("#energy").html('Listing devices \n' +devices.length +devices);
+            console.log("tracking here");
+            console.log("Info device is here" + devices[0]);
+            this.arduino = devices[4].id;
             if(devices.length ===0){
               $("#energy").html("No Bluetooth Device found");
             }
@@ -44,9 +47,9 @@ export class HomePage {
           );
         };
       var error = function(){
-            $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
+            // $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
           };
-      BluetoothSerial.connect('20:16:10:10:18:31').subscribe();
+      BluetoothSerial.connect(this.arduino);
       BluetoothSerial.isConnected().then(deviceReady,error);
     }).catch(fail => {
             console.log('Fail!');
