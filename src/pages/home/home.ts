@@ -15,12 +15,11 @@ export class HomePage {
     
   }
 
-  listDevices(){
+  public listDevices(){
     var mac_arduino = "20:16:10:10:18:31";
     BluetoothSerial.enable();
     //IS Bluetooth TURNED ON?
-    BluetoothSerial.isEnabled().then(res =>{
-      //BluetoothSerial.list().then(val=>{ $("#energy").text(val);},error=>{console.log("error")});
+    // BluetoothSerial.isEnabled().then(res =>{
       //LIST DEVICES
       BluetoothSerial.list().then(
         (devices) => {
@@ -32,7 +31,7 @@ export class HomePage {
               // this.connect(device.address);
               console.log("Condition number is ", device.address.localeCompare(mac_arduino));
               if(device.address.localeCompare(mac_arduino)===0){
-                // this.connect(device.address);
+                this.connect(device.address);
               }
             })
             //NO DEVICES FOUND
@@ -40,10 +39,10 @@ export class HomePage {
               $("#energy").html("No Bluetooth Device found");
             }
         });
-    }).catch(fail => {
-            console.log('Fail!');
-            $("#energy").html('Bluetooth is not enabled/supported');
-            });
+    // }).catch(fail => {
+    //         console.log('Fail!');
+    //         $("#energy").html('Bluetooth is not enabled/supported');
+    //         });
   }
 
   connect(addr){
