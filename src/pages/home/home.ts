@@ -47,6 +47,7 @@ export class HomePage {
   connect(){
     //ATTEMP TO CONNECT
     this.arduino = this.mac_arduino;
+    console.log(this.arduino);
     var deviceReady = function() {
         $("#energy").html("Connected Hooooray");
         BluetoothSerial.subscribeRawData();
@@ -57,7 +58,7 @@ export class HomePage {
         );
       };
     var error = function(){
-            // $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
+            $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
         };
     BluetoothSerial.connect(this.arduino);
     BluetoothSerial.isConnected().then(deviceReady,error);
