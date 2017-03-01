@@ -11,13 +11,12 @@ ScreenOrientation.lockOrientation('landscape');
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public arduino;
-  public mac_arduino = "20:16:10:10:18:31";
   constructor(public navCtrl: NavController) {
-  
+    
   }
 
   listDevices(){
+    var mac_arduino = "20:16:10:10:18:31";
     BluetoothSerial.enable();
     //IS Bluetooth TURNED ON?
     BluetoothSerial.isEnabled().then(res =>{
@@ -28,12 +27,15 @@ export class HomePage {
             // set the list to returned value
             $("#energy").html('Listing devices \n' +devices.length +devices);
             console.log("tracking here");
-            console.log("Info device is here", devices[0]);
+            console.log("Address type is", typeof devices[4].id);
             devices.forEach(function(device){
-              if(device.id === this.mac_arduino){
-                this.connect();
+              // this.connect(device.address);
+              console.log("Condition number is ", device.address.localeCompare(mac_arduino));
+              if(device.address.localeCompare(mac_arduino)===0){
+                // this.connect(device.address);
               }
             })
+            //NO DEVICES FOUND
             if(devices.length ===0){
               $("#energy").html("No Bluetooth Device found");
             }
@@ -44,23 +46,23 @@ export class HomePage {
             });
   }
 
-  connect(){
+  connect(addr){
     //ATTEMP TO CONNECT
-    this.arduino = this.mac_arduino;
-    console.log(this.arduino);
+    $("#energy").html("yoohoo");
+    console.log("Param id is",addr);
     var deviceReady = function() {
         $("#energy").html("Connected Hooooray");
         BluetoothSerial.subscribeRawData();
-        BluetoothSerial.read().then( 
-          data =>{
-            $("#energy").html(data);
-          }
-        );
+        // BluetoothSerial.read().then( 
+        //   data =>{
+        //     $("#energy").html(data);
+        //   }
+        // );
       };
     var error = function(){
             $("#energy").html('Fail to connect to Arduino. Have you tried turning it on and off again??');
         };
-    BluetoothSerial.connect(this.arduino);
+    BluetoothSerial.connect(addr);
     BluetoothSerial.isConnected().then(deviceReady,error);
   }
 
